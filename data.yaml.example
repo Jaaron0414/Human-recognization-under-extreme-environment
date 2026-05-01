@@ -1,0 +1,46 @@
+# YOLO 数据集配置示例（使用夜间行人数据集时替换路径）
+# 将此文件复制为 data.yaml 并修改 path / train / val 路径
+
+# 数据集根目录（绝对路径或相对于 ultralytics 工作目录）
+path: ./dataset
+
+# 训练集 / 验证集图像路径（相对于 path）
+train: images/train
+val:   images/val
+test:  images/test   # 可选
+
+# 类别数量（仅保留行人）
+nc: 1
+
+# 类别名称
+names:
+  0: pedestrian
+
+# ──────────────────────────────────────────────
+# 推荐的夜间行人数据集（公开可下载）
+# ──────────────────────────────────────────────
+#
+# 1. NightOwls Dataset
+#    https://www.nightowls-dataset.org/
+#    专为夜间行人检测设计，含远光灯/路灯场景
+#
+# 2. EuroCity Persons (ECP) - 夜间子集
+#    https://eurocitypersons.mpi-inf.mpg.de/
+#    欧洲城市夜间行人，标注精细
+#
+# 3. BDD100K - 过滤夜间场景
+#    https://www.bdd100k.com/
+#    大规模驾驶数据集，包含不同光照条件
+#
+# 4. KAIST Multispectral Pedestrian Dataset
+#    https://soonminhwang.github.io/rgbt-ped-detection/
+#    RGB + 热成像对，适合多模态研究
+#
+# 数据集目录结构（YOLO 格式）：
+# dataset/
+# ├── images/
+# │   ├── train/  *.jpg
+# │   └── val/    *.jpg
+# └── labels/
+#     ├── train/  *.txt  (每行: class cx cy w h，归一化)
+#     └── val/    *.txt
